@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * @author long
  */
-@WebServlet("/listCity")
+@WebServlet("/list_city")
 public class UserServlet extends HttpServlet {
 
     @Override

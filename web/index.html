@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div>
+        <h2>学生信息</h2>
+        <table id="tab" class="table table-hover table-bordered">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>电话</th>
+            </tr>
+        </table>
+    </div>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            url:'list_city',
+            type:'get',
+            success: function (result) {
+                $.each(result, function (index,user) {
+                    $('#tab').append(
+                        "<tr>" +
+                            "<td>"+user.uid+"</td>"+
+                            "<td>"+user.uname+"</td>"+
+                            "<td>"+user.age+"</td>"+
+                            "<td>"+user.tel+"</td>"+
+                        "</tr>"
+                    )
+                })
+            }
+        })
+    })
+</script>
+</body>
+</html>
