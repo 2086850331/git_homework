@@ -1,5 +1,6 @@
 package edu.nf.git.controller;
 
+import com.google.gson.Gson;
 import edu.nf.git.entity.Users;
 import edu.nf.git.service.UsersService;
 
@@ -21,7 +22,8 @@ public class UserServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UsersService service = new UsersService();
         List<Users> list = service.listCity();
+        String json = new Gson().toJson(list);
         resp.setContentType("application/json;charset=utf-8");
-        resp.getWriter().println(list);
+        resp.getWriter().println(json);
     }
 }

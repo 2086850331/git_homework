@@ -6,8 +6,32 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <div>
+    <div class="container">
         <h2>学生信息</h2>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="cid" class="col-sm-2 control-label">编  号：</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control col-sm-6" id="cid">
+                </div>
+
+                <label for="cname" class="col-sm-2 control-label">姓  名：</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control col-sm-6" id="cname">
+                </div>
+
+                <label for="age" class="col-sm-2 control-label">年  龄：</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control col-sm-6" id="age">
+                </div>
+
+                <label for="tel" class="col-sm-2 control-label">电  话：</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control col-sm-6" id="tel">
+                </div>
+                <input id="add" type="button" class="btn btn-info" value="注册" style="float: right"/>
+            </div>
+        </form>
         <table id="tab" class="table table-hover table-bordered">
             <tr>
                 <th>编号</th>

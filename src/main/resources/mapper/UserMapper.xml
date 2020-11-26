@@ -5,7 +5,7 @@
 
 <!--添加-->
     <insert id="add" parameterType="users">
-        insert into user_info2(u_id,u_name,age,tel) values(${uid,uname,age,tel})
+        insert into user_info2(u_id,u_name,age,tel) values(#{uid},#{uname},#{age},#{tel})
     </insert>
 
 <!--    查询-->
