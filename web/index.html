@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <h2>学生信息</h2>
-        <form class="form-horizontal">
+        <form id="f1" class="form-horizontal">
             <div class="form-group">
                 <label for="cid" class="col-sm-2 control-label">编  号：</label>
                 <div class="col-sm-4">
@@ -52,14 +52,27 @@
                 $.each(result, function (index,user) {
                     $('#tab').append(
                         "<tr>" +
-                            "<td>"+user.uid+"</td>"+
-                            "<td>"+user.uname+"</td>"+
+                            "<td>"+user.id+"</td>"+
+                            "<td>"+user.name+"</td>"+
                             "<td>"+user.age+"</td>"+
                             "<td>"+user.tel+"</td>"+
                         "</tr>"
                     )
                 })
             }
+        })
+
+        $('#add').on('click', function () {
+            var param = $('#f1').serialize();
+            alert(param);
+            $.ajax({
+                url:'add_user',
+                type:'get',
+                date:param,
+                success: function (result) {
+
+                }
+            })
         })
     })
 </script>
