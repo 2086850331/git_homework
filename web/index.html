@@ -10,32 +10,29 @@
         <h2>学生信息</h2>
         <form id="f1" class="form-horizontal">
             <div class="form-group">
-
-                <label for="cname" class="col-sm-2 control-label">姓  名：</label>
+                <label for="uname" class="col-sm-2 control-label">姓  名：</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control col-sm-6" id="cname">
+                    <input type="text" class="form-control col-sm-6" id="uname" name="uname">
                 </div>
-
                 <label for="age" class="col-sm-2 control-label">年  龄：</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control col-sm-6" id="age">
+                    <input type="text" class="form-control col-sm-6" id="age" name="age">
                 </div>
-
                 <label for="tel" class="col-sm-2 control-label">电  话：</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control col-sm-6" id="tel">
+                    <input type="text" class="form-control col-sm-6" id="tel" name="tel">
                 </div>
                 <input id="add" type="button" class="btn btn-info" value="注册" style="float: right"/>
             </div>
+            <table id="tab" class="table table-hover table-bordered">
+                <tr id="tr">
+                    <th>编号</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>电话</th>
+                </tr>
+            </table>
         </form>
-        <table id="tab" class="table table-hover table-bordered">
-            <tr>
-                <th>编号</th>
-                <th>姓名</th>
-                <th>年龄</th>
-                <th>电话</th>
-            </tr>
-        </table>
     </div>
 <script src="js/jquery-1.12.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -63,19 +60,20 @@
             alert(param);
             $.ajax({
                 url:'add_user',
-                type:'get',
-                date:param,
-                success: function (result) {
-                    var a = null;
-                    $(data).each(function (i,u) {
-                        a += "<tr>" +
-                            "<td>" + u.id + "</td>" +
-                            "<td>" + u.name + "</td>" +
-                            "<td>" + u.age + "</td>" +
-                            "<td>" + u.tel + "</td>" +
+                type:'post',
+                data:param,
+                success: function (data) {
+                    if (data.code==200){
+                        $("#tr").after(
+                            "<tr>" +
+                                "<td>" + user.id + "</td>" +
+                                "<td>" + user.name + "</td>" +
+                                "<td>" + user.age + "</td>" +
+                                "<td>" + user.tel + "</td>" +
                             "</tr>"
-                    })
-                    $('#tab').append(a);
+                        )
+                    }
+                    location.reload();
                 }
             })
         })

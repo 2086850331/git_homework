@@ -4,14 +4,16 @@ import edu.nf.git.dao.UserDao;
 import edu.nf.git.dao.impl.UserDaoImpl;
 import edu.nf.git.entity.Users;
 
+import java.util.List;
+
 /**
  * @author long
  */
 public class AddService {
 
-    public Users addUser(Users user){
+
+    public void AddUsers(Users user){
         UserDao dao = new UserDaoImpl();
         dao.add(user);
-        return user;
     }
 }

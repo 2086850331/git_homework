@@ -23,6 +23,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<Users> listCity() {
+        //获取SqlSession对象，并设置为自动提交
         try (SqlSession sqlSession = MybatisUtil.getSqlSession(true)){
             return sqlSession.getMapper(UserDao.class).listCity();
         }catch (RuntimeException e){
