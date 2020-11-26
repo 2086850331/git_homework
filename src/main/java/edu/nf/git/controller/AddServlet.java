@@ -19,14 +19,12 @@ public class AddServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        //获取页面输入的数据
-        Integer uid = Integer.parseInt(req.getParameter("uid"));
         String uname = req.getParameter("uname");
-        Integer age = Integer.parseInt(req.getParameter("age"));
+        int age = Integer.parseInt(req.getParameter("age"));
         String tel = req.getParameter("tel");
         //封装成user对象
         Users user = new Users();
-        user.setUid(uid);
-        user.setUname(uname);
+        user.setName(uname);
         user.setAge(age);
         user.setTel(tel);
         //创建业务层对象

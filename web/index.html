@@ -10,10 +10,6 @@
         <h2>学生信息</h2>
         <form id="f1" class="form-horizontal">
             <div class="form-group">
-                <label for="cid" class="col-sm-2 control-label">编  号：</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control col-sm-6" id="cid">
-                </div>
 
                 <label for="cname" class="col-sm-2 control-label">姓  名：</label>
                 <div class="col-sm-4">
@@ -70,7 +66,16 @@
                 type:'get',
                 date:param,
                 success: function (result) {
-
+                    var a = null;
+                    $(data).each(function (i,u) {
+                        a += "<tr>" +
+                            "<td>" + u.id + "</td>" +
+                            "<td>" + u.name + "</td>" +
+                            "<td>" + u.age + "</td>" +
+                            "<td>" + u.tel + "</td>" +
+                            "</tr>"
+                    })
+                    $('#tab').append(a);
                 }
             })
         })
